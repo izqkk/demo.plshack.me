@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>XSS Demo</title>
+
+	</head>
+	<body>
+
+	  <div class="container">
+	      <div class="span4"></div>
+	    </div>
+
+		<form role="search" action="" method="GET">
+	    <div class="row">
+	      <div class="col-xs-6">
+	        <div class="input-group">
+	          <input type="text" class="form-control" name="search" placeholder="Search">
+	          <span class="input-group-btn">
+	                  <button class="btn btn-primary" type="button"><i class="fa fa-microphone"></i></button>
+	                </span>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="btn-group-wrap">
+	      <div class="btn-group">
+	        <button type="submit" class="btn btn-primary" id="search">Search</button>
+	      </div>
+	    </div>
+	    </form>
+
+		<?php
+			if (isset($_GET['search']) && !empty($_GET['search'])) {
+				$search = $_GET['search'];
+				echo "<h3>" . $search . " Not found</h3>";
+			}
+		?>
+	</body>
+</html>
